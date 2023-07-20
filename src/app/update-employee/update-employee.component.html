@@ -1,0 +1,23 @@
+<p-toast></p-toast>
+
+<div class="grid">
+  <div class="col-4" style="border: red 1px solid"></div>
+  <div class="col-6" style="border: green 1px solid">
+    <div>
+      <div class="p-field">
+        <label for="firstName">First Name</label>
+        <input id="firstName" type="firstName" pInputText [(ngModel)]="txtFirstName"/>
+      </div>
+      <div class="p-field">
+        <label for="lastName">Last Name</label>
+        <input id="lastName" type="lastName" pInputText [(ngModel)]="txtLastName"/>
+      </div>
+      <div class="p-field">
+        <label for="emailId">EmailId</label>
+        <input id="emailId" type="emailId" pInputText [(ngModel)]="txtEmailId"/>
+      </div>
+      <button pButton pRipple type="button" label="Submit" class="p-button-rounded p-button-success" (click)="updateEmployeeById()" ></button>
+    </div>
+  </div>
+  <div class="col-2" style="border: yellow 1px solid"></div>
+</div>

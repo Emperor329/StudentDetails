@@ -1,0 +1,58 @@
+<p-toolbar>
+  <button pButton pRipple type="button" label="Employees List" (click)="menuNavigation(true)" ></button>
+<button pButton pRipple type="button" label="Add Employee" (click)="menuNavigation(false)" ></button>
+</p-toolbar>
+
+<p-toast></p-toast>
+
+<div class="grid" *ngIf="!isEmployeesList">
+  <div class="col-4" style="border: red 1px solid"></div>
+  <div class="col-6" style="border: green 1px solid">
+    <div>
+      <div class="p-field">
+        <label for="firstName">First Name</label>
+        <input id="firstName" type="firstName" pInputText [(ngModel)]="txtFirstName"/>
+      </div>
+      <div class="p-field">
+        <label for="lastName">Last Name</label>
+        <input id="lastName" type="lastName" pInputText [(ngModel)]="txtLastName"/>
+      </div>
+      <div class="p-field">
+        <label for="emailId">EmailId</label>
+        <input id="emailId" type="emailId" pInputText [(ngModel)]="txtEmailId"/>
+      </div>
+      <button pButton pRipple type="button" label="Submit" class="p-button-rounded p-button-success" (click)="onSubmit()" ></button>
+    </div>
+  </div>
+  <div class="col-2" style="border: yellow 1px solid"></div>
+</div>
+
+<div *ngIf="isEmployeesList">
+  <p-table [columns]="cols" [value]="employees">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns">
+          {{col.header}}
+        </th>
+        <th>Action</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr>
+        <td *ngFor="let col of columns">
+          {{rowData[col.field]}}
+        </td>
+        <td>
+          <button pButton pRipple type="button" label="Update" class="mr-2" (click)="navigateToUpdateEmployeePage(rowData.empId)" ></button>
+          <button pButton pRipple type="button" label="Delete" class="p-button-danger" (click)="onDelete(rowData.empId)" ></button>
+          <button pButton pRipple type="button" label="View" class="ml-2" (click)="onView()" ></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+</div>
+
+
+
+

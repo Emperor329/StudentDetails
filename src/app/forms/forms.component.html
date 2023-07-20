@@ -1,0 +1,62 @@
+<div class="grid">
+  <div class="col-12"></div>
+
+  <div class="col-12">
+    <div class="grid">
+      <div class="col-3"></div>
+      <div class="col-6">
+
+        <form [formGroup]="sampleForm">
+
+          <div class="grid">
+            <div class="col-6 " style="border: black 0.15vw solid;border-radius: 1vw; background: darkorange">
+
+              <div class="grid controls p-field p-2">
+                <label for="rollNo" class="col-3">Roll No</label>
+                <input id="rollNo" class="form-control col-6" formControlName="rollNo" pInputText/>
+              </div>
+
+              <!--<div class="grid controls p-field p-2">
+                <div *ngFor="let gender of gender" class="p-field-checkbox">
+                  <p-radioButton class="form-control " [(ngModel)]="genderSelected" ></p-radioButton>
+                  <label  class="p-1" [for]="gender">{{gender}}</label>
+                </div>
+              </div>-->
+
+              <div class="grid controls p-field p-2">
+                <label for="dob" class="col-3">DOB</label>
+                <input id="dob" type="date" class="form-control col-6" formControlName="dob" pInputText/>
+              </div>
+
+            </div>
+
+            <div class="col-6" style="border: black 0.15vw solid;border-radius: 1vw; background: yellow">
+
+              <div class="grid controls p-field p-2">
+                <label for="firstName" class="col-3">First Name</label>
+                <input id="firstName" class="form-control col-6" formControlName="firstName" pInputText/>
+              </div>
+
+              <div class="grid controls p-field p-2">
+                <label for="lastName" class="col-3">Last Name</label>
+                <input id="lastName" class="form-control col-6" formControlName="lastName" pInputText/>
+              </div>
+            </div>
+          </div>
+          <div class="p-1"></div>
+          <div>
+            <button pButton pRipple type="button" label="Submit" class="p-button-rounded p-button-success" (click)="onSubmit()"></button>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-3"></div>
+    </div>
+  </div>
+</div>
+
+<div *ngFor="let gender of gender" class="p-field-checkbox">
+  <p-radioButton class="form-control" name="gender" [value]="gender" [(ngModel)]="genderSelected" [inputId]="gender.name"></p-radioButton>
+  <label  class="p-1" [for]="gender.name">{{gender.name}}</label>
+</div>
+

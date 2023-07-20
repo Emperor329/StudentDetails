@@ -1,0 +1,103 @@
+<div class="grid">
+  <div class="col-12"></div>
+  <div class="col-12"></div>
+</div>
+<div class="grid">
+  <div class="col-4"></div>
+  <div class="col-4 " style="border: black 0.15vw solid;border-radius: 2vw; background: green">
+    <h1 class="text-center">Insert Student Details</h1>
+  </div>
+  <div class="col-4"></div>
+</div>
+<p-toast></p-toast>
+<div class="grid">
+  <div class="col-12"></div>
+  <div class="col-12"></div>
+</div>
+<div class="grid">
+  <div class="col-3"></div>
+  <div class="col-6">
+    <form [formGroup]="studentForm" (ngSubmit)="onSubmit(studentForm.value)">
+      <div class="grid">
+        <div class="col-6 " style="border: black 0.15vw solid;border-radius: 1vw; background: darkorange">
+          <div class="grid controls p-field p-2">
+            <label for="rollNo" class="col-3">RollNo</label>
+            <input id="rollNo" class="form-control col-6" type="number" placeholder="Roll Number" formControlName="rollNo" pInputText>
+          </div>
+
+          <div class="grid controls p-field p-2">
+            <label for="studentClass" class="col-3">Class</label>
+            <input id="studentClass" class="form-control col-6" type="number"placeholder="Class" formControlName="studentClass" pInputText>
+          </div>
+          <label>Gender</label>
+          <div *ngFor="let gender of gender" class="grid controls p-field-checkbox">
+            <p-radioButton class="form-control" formControlName = "gender" name="gender" [value]="gender" placeholder="Gender"
+                           [inputId]="gender.name"></p-radioButton>
+            <label class="p-2" [for]="gender.name">{{gender.name}}</label>
+          </div>
+
+          <div class="grid controls p-field p-2">
+            <label for="dob" class="col-3">DOB</label>
+            <input id="dob" class="form-control col-6" type="date" formControlName="dob" placeholder="DOB" pInputText>
+          </div>
+
+          <div class="grid controls p-field p-2">
+            <label for="phoneNo" class="col-3">Phone No</label>
+            <input id="phoneNo" class="col-6" type="tel" formControlName="phoneNo" placeholder="Phone Number" pInputText>
+          </div>
+
+          <div class="grid controls p-field p-2">
+            <label for="emailId" class="col-3">Email ID</label>
+            <input id="emailId" class="col-6" type="text" formControlName="emailId" placeholder="Email ID" pInputText>
+          </div>
+
+        </div>
+        <div class="col-6" style="border: black 0.15vw solid;border-radius: 1vw; background: darkorange">
+          <div class=" grid controls p-field p-2">
+            <label for="firstName" class="col-4">First Name</label>
+            <input id="firstName" class="col-6" type="text" formControlName="firstName" placeholder="First Name" pInputText>
+          </div>
+
+          <div class="grid controls p-field p-2">
+            <label for="lastName" class="col-4">Lastname</label>
+            <input id="lastName" class="col-6" type="text" formControlName="lastName" placeholder="Lastname" pInputText>
+          </div>
+
+          <div class="grid controls p-field p-2">
+            <label for="fatherName" class="col-4">Father Name</label>
+            <input id="fatherName" class="col-6" type="text" formControlName="fatherName" placeholder="Father Name" pInputText>
+          </div>
+
+          <div class="grid controls p-field p-2">
+            <label for="motherName" class="col-4">Mother Name</label>
+            <input id="motherName" class="col-6" type="text" formControlName="motherName" placeholder="Mother Name" pInputText>
+          </div>
+
+          <label>Do you have Siblings??</label>
+          <div *ngFor="let siblings of siblings" class="grid controls p-field-checkbox">
+            <p-radioButton class="form-control" formControlName = "siblings" name="siblings" [value]="siblings" [inputId]="siblings.status"></p-radioButton>
+            <label class="p-2" [for]="siblings.status">{{siblings.status}}</label>
+          </div>
+
+          <div class="grid controls p-field p-2">
+            <label for="studentAddress" class="col-4">Address</label>
+            <input id="studentAddress" class="form-control col-6" type="text" formControlName="studentAddress" placeholder="Address" pInputText>
+          </div>
+
+
+          <div class="grid controls p-field p-2">
+            <label for="residency" class="col-3">Residency</label>
+            <p-dropdown id="residency" class="form-control col-6" formControlName="residency" placeholder="Residency" [options]="residency" optionLabel="name"
+                        [showClear]="true" ></p-dropdown>
+          </div>
+
+        </div>
+      </div>
+      <div class="p-1"></div>
+      <div class="col-6">
+        <button pButton pRipple type="submit" label="Submit" class="p-button-rounded p-button-success"></button>
+      </div>
+    </form>
+  </div>
+</div>
+
